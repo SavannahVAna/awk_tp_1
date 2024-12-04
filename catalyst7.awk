@@ -20,7 +20,7 @@ BEGINFILE {
 /^interface /{
     if (began && trunk_flag){
             #test les flags
-            if (!(encap_flag && native_flag && allowed_flag && !port_flag)){
+            if (!(!encap_flag && !native_flag && !allowed_flag && port_flag)){
                 print("wrong configuration ", "interface ", vart);
             }
             
@@ -41,7 +41,7 @@ BEGINFILE {
 
 
 #ip valide aussi
-/^ switchport mode trunk/{
+/^ switchport mode access/{
     trunk_flag = 1;
 }
 
@@ -69,7 +69,7 @@ ENDFILE {
     
     if (began && trunk_flag){
         #test les flags
-        if (!(encap_flag && native_flag && allowed_flag && !port_flag)){
+        if (!(!encap_flag && !native_flag && !allowed_flag && port_flag)){
             print("wrong configuration ", "interface ", vart);
         }
             
