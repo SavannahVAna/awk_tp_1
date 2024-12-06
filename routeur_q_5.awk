@@ -40,14 +40,14 @@ BEGINFILE {
 ENDFILE {
     for (id in acl_def) {
         if(!(id in acl_ref)) {
-            print("DEF pas définit ", id);
+            print("DEF pas utilisé ", id);
 
         }
     }
 
     for(id in acl_ref) {
         if(!(id in acl_def)) {
-            print("REF pas utilisé ", id);
+            print("REF pas défini ", id);
         }
     }
 	print("end processing file: ", FILENAME);
